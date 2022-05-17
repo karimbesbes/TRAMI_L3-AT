@@ -1,0 +1,10 @@
+#1
+#Temperature	0	20	40	60	80	100	degreeC
+#OilViscosity	367.16	223.4	82	37.7	20.4	12.4	E-6m^2/s
+#							
+double tab1(5,9) # 1st Column : Input Axis Angular Velocity [rpm], 1st Row : Oil Viscosity [m^2/s]							
+0	1.239E-05	1.24E-05	1.57E-05	2.04E-05	3.77E-05	8.20E-05	2.23E-04	2.231E-04
+-1	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	0	0	0
+10000	6	6	6	7	8	10	14	14
+10001	6	6	6	7	8	10	14	14

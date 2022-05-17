@@ -1,0 +1,42 @@
+#1
+#Temperature	20	40	60	80	90	100   degreeC																	
+#OilViscosity	39.4	18	9.7     6.0  	5.1	4.1   E-06m^2/s																		
+#																							
+double tab1(5,5) # 100degC 4.1e-6m^2/s, 1st column : Torque [Nm], 1st row : Angular Velocity [rpm]																							
+0	-1	0	10000	10001
+-1	0	0	0	0
+0	0	0	0	0
+1000	8	8	4	4
+1001	8	8	4	4
+
+
+double tab2(5,5) # 80degC 6.0e-6m^2/s, 1st column : Torque [Nm], 1st row : Angular Velocity [rpm]																							
+0	-1	0	10000	10001
+-1	0	0	0	0
+0	0	0	0	0
+1000	8	8	4	4
+1001	8	8	4	4	
+
+
+double tab3(5,5) # 60degC 9.7e-6m^2/s																							
+0	-1	0	10000	10001
+-1	0	0	0	0
+0	0	0	0	0
+1000	8	8	3	3
+1001	8	8	3	3
+
+
+double tab4(5,5) # 40degC 18.0e-6m^2/s																						
+0	-1	0	10000	10001
+-1	0	0	0	0
+0	0	0	0	0
+1000	8	8	2	2
+1001	8	8	2	2
+
+
+double tab5(5,5) # 20degC 39.4e-6m^2/s																							
+0	-1	0	10000	10001
+-1	0	0	0	0
+0	0	0	0	0
+1000	8	8	1	1
+1001	8	8	1	1

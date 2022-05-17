@@ -1,0 +1,13 @@
+#1
+#Temperature	20	40	60   80 	90	100	degreeC
+#OilViscosity	39.4	18	9.7  6.0	5.1	4.1	e-6m^2/s
+#						
+double tab1(3,3) # 1st column : Oil Viscosity [m^2/s], 1st row : Angular Velocity [rpm]						
+0	0	20000
+0.00000409	0.1	0.1
+0.00003941	0.1	0.1
+						
+double tab2(3,3) # 1st column : Radial Load [N], 1st row : Axial Load [N]						
+0	0	20000				
+0	0.17	0.17
+10000	0.17	0.17				

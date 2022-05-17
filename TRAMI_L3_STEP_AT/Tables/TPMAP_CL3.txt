@@ -1,0 +1,11 @@
+#1
+double tab1(9,2) # 1st column : Clutch Torque [Nm], 2nd column : Clutch Pressure [kPa]
+-1001	3800
+-1000	3800
+-75	280
+-1	280
+0	0
+1	280
+74	280
+1000	3800
+1001	3800

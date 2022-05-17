@@ -1,0 +1,7 @@
+#1
+#Temperature	0	20	40	60	80	100	degreeC
+#OilViscosity	367.16	223.4	82	37.7	20.4	12.4	e-6m^2/s
+#							
+double tab1(2,2) # 1st column : Angular Velocity [rpm]							
+0	0.03
+10000	0.03

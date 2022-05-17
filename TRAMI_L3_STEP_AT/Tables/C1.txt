@@ -1,0 +1,28 @@
+#1
+#Temperature	20	40	60	80	90	100   degreeC
+#OilViscosity	39.4	18	9.7     6.0  	5.1	4.1   E-06m^2/s	
+#						
+double tab1(3,3) # 100degC 4.1e-6m^2/s, 1st Cloumn : Angular Velocity input w1[rpm], 1st Row : Angular Velocity difference w2-w1[rpm]						
+0	-10000	10000
+0	0.1	0.1
+10000	0.1	0.1
+
+double tab2(3,3) # 80degC 6.0e-6m^2/s						
+0	-10000	10000
+0	0.1	0.1
+10000	0.1	0.1
+
+double tab3(3,3) # 60degC 9.7e-6m^2/s						
+0	-10000	10000
+0	0.1	0.1
+10000	0.1	0.1
+
+double tab4(3,3) # 40degC 18.0e-6m^2/s						
+0	-10000	10000
+0	0.2	0.2
+10000	0.2	0.2
+
+double tab5(3,3) # 20degC 39.4e-6m^2/s						
+0	-10000	10000				
+0	0.3	0.3
+10000	0.3	0.3				

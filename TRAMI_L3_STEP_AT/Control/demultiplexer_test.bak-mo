@@ -1,0 +1,258 @@
+within TRAMI_L3_STEP_AT.Control;
+model demultiplexer_test
+
+  Modelica.Blocks.Interfaces.RealInput u[34]
+    annotation (Placement(transformation(extent={{-120,-20},{-80,20}})));
+  Modelica.Blocks.Routing.DeMultiplex2 DM1(n1=25, n2=9)
+    annotation (Placement(transformation(extent={{-72,-10},{-52,10}})));
+  Modelica.Blocks.Interfaces.RealOutput tau_clutch_cap[6] annotation (Placement(
+      visible=true,
+      transformation(
+        origin={110,126},
+        extent={{-10,-10},{10,10}},
+        rotation=0),
+      iconTransformation(
+        origin={110,180},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Interfaces.RealOutput tau_engine_max_req annotation (
+      Placement(
+      visible=true,
+      transformation(
+        origin={110,-116},
+        extent={{-10,-10},{10,10}},
+        rotation=0),
+      iconTransformation(
+        origin={110,-100},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Interfaces.RealOutput p_line_Pa annotation (Placement(
+      visible=true,
+      transformation(
+        origin={110,60},
+        extent={{-10,-10},{10,10}},
+        rotation=0),
+      iconTransformation(
+        origin={110,100},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Interfaces.RealOutput qv_cooler_trans_fluid_m3ps annotation (
+      Placement(
+      visible=true,
+      transformation(
+        origin={110,-44},
+        extent={{-10,-10},{10,10}},
+        rotation=0),
+      iconTransformation(
+        origin={110,-20},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Interfaces.RealOutput qv_cooler_eng_water_m3ps annotation (
+      Placement(
+      visible=true,
+      transformation(
+        origin={110,-80},
+        extent={{-10,-10},{10,10}},
+        rotation=0),
+      iconTransformation(
+        origin={110,-60},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Interfaces.RealOutput i_actuator_ampere annotation (Placement(
+      visible=true,
+      transformation(
+        origin={110,26},
+        extent={{-10,-10},{10,10}},
+        rotation=0),
+      iconTransformation(
+        origin={110,60},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Interfaces.RealOutput i_eop_ampere annotation (Placement(
+      visible=true,
+      transformation(
+        origin={110,-6},
+        extent={{-10,-10},{10,10}},
+        rotation=0),
+      iconTransformation(
+        origin={110,34},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Interfaces.RealOutput tau_lockup_cap annotation (Placement(
+      visible=true,
+      transformation(
+        origin={110,90},
+        extent={{-10,-10},{10,10}},
+        rotation=0),
+      iconTransformation(
+        origin={110,140},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Interfaces.RealOutput ratio_AT annotation (Placement(
+      visible=true,
+      transformation(
+        origin={110,-150},
+        extent={{-10,-10},{10,10}},
+        rotation=0),
+      iconTransformation(
+        origin={110,-140},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Interfaces.RealOutput flag_trans_lock_up annotation (
+      Placement(
+      visible=true,
+      transformation(
+        origin={110,-190},
+        extent={{-10,-10},{10,10}},
+        rotation=0),
+      iconTransformation(
+        origin={110,-180},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Routing.DeMultiplex5 DM2(
+    n1=5,
+    n2=5,
+    n3=5,
+    n4=5,
+    n5=5) annotation (Placement(visible=true, transformation(
+        origin={-30,86},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Routing.DeMultiplex2 DM3(n1=5, n2=4) annotation (Placement(
+        visible=true, transformation(
+        origin={-10,-50},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Routing.DeMultiplex5 DM4 annotation (Placement(visible=true,
+        transformation(
+        origin={20,130},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Routing.DeMultiplex5 DM5 annotation (Placement(visible=true,
+        transformation(
+        origin={20,94},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Routing.DeMultiplex5 DM7 annotation (Placement(visible=true,
+        transformation(
+        origin={20,42},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Routing.DeMultiplex5 DM6 annotation (Placement(visible=true,
+        transformation(
+        origin={20,68},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Routing.DeMultiplex5 DM8 annotation (Placement(visible=true,
+        transformation(
+        origin={20,16},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Routing.DeMultiplex5 DM9 annotation (Placement(visible=true,
+        transformation(
+        origin={28,-38},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Routing.DeMultiplex4 DM10(
+    n1=1,
+    n2=1,
+    n3=1,
+    n4=1) annotation (Placement(visible=true, transformation(
+        origin={28,-64},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Continuous.FirstOrder firstOrder10(T=0.01)
+    annotation (Placement(visible=true, transformation(
+        origin={52,-42},
+        extent={{-2,-2},{2,2}},
+        rotation=0)));
+  Modelica.Blocks.Continuous.FirstOrder firstOrder1(T=0.01)
+    annotation (Placement(visible=true, transformation(
+        origin={58,-38},
+        extent={{-2,-2},{2,2}},
+        rotation=0)));
+  Modelica.Blocks.Continuous.FirstOrder firstOrder2(T=0.01)
+    annotation (Placement(visible=true, transformation(
+        origin={64,-34},
+        extent={{-2,-2},{2,2}},
+        rotation=0)));
+  Modelica.Blocks.Routing.Multiplex5 multiplex51 annotation (Placement(visible=true,
+        transformation(
+        origin={52,128},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Routing.Multiplex2 multiplex21(n1=5, n2=1) annotation (
+      Placement(visible=true, transformation(
+        origin={84,126},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+equation
+  connect(u, DM1.u)
+    annotation (Line(points={{-100,0},{-74,0}}, color={0,0,127}));
+  connect(DM1.y1, DM2.u) annotation (Line(points={{-51,6},{-51,21},{-42,21},{-42,
+          86}}, color={0,0,127}));
+  connect(DM1.y2, DM3.u) annotation (Line(points={{-51,-6},{-36,-6},{-36,-50},{-22,
+          -50}}, color={0,0,127}));
+  connect(DM3.y1, DM9.u) annotation (Line(points={{1,-44},{8,-44},{8,-38},{16,-38}},
+        color={0,0,127}));
+  connect(DM3.y2, DM10.u) annotation (Line(points={{1,-56},{8.5,-56},{8.5,-64},{
+          16,-64}}, color={0,0,127}));
+  connect(DM9.y1[1], i_eop_ampere) annotation (Line(points={{39,-30},{42,-30},{42,
+          -16},{60,-16},{60,-6},{110,-6}}, color={0,0,127}));
+  connect(DM9.y4[1], firstOrder10.u)
+    annotation (Line(points={{39,-42},{49.6,-42}}, color={0,0,127}));
+  connect(firstOrder1.u, DM9.y3[1])
+    annotation (Line(points={{55.6,-38},{39,-38}}, color={0,0,127}));
+  connect(DM9.y2[1], firstOrder2.u)
+    annotation (Line(points={{39,-34},{61.6,-34}}, color={0,0,127}));
+  connect(firstOrder2.y, qv_cooler_trans_fluid_m3ps) annotation (Line(points={{66.2,
+          -34},{84,-34},{84,-44},{110,-44}}, color={0,0,127}));
+  connect(firstOrder1.y, qv_cooler_eng_water_m3ps) annotation (Line(points={{60.2,
+          -38},{78,-38},{78,-80},{110,-80}}, color={0,0,127}));
+  connect(firstOrder10.y, tau_engine_max_req) annotation (Line(points={{54.2,-42},
+          {72,-42},{72,-116},{110,-116}}, color={0,0,127}));
+  connect(DM10.y4[1], flag_trans_lock_up)
+    annotation (Line(points={{39,-73},{39,-190},{110,-190}}, color={0,0,127}));
+  connect(DM10.y3[1], ratio_AT) annotation (Line(points={{39,-67},{50,-67},{50,-150},
+          {110,-150}}, color={0,0,127}));
+  connect(DM8.y5[1], i_actuator_ampere) annotation (Line(points={{31,8},{54,8},{
+          54,26},{110,26}}, color={0,0,127}));
+  connect(DM8.y4[1], p_line_Pa) annotation (Line(points={{31,12},{48,12},{48,32},
+          {90,32},{90,60},{110,60}}, color={0,0,127}));
+  connect(tau_clutch_cap, multiplex21.y)
+    annotation (Line(points={{110,126},{95,126}}, color={0,0,127}));
+  connect(DM4.y1, multiplex51.u1)
+    annotation (Line(points={{31,138},{40,138}}, color={0,0,127}));
+  connect(DM4.y2, multiplex51.u2) annotation (Line(points={{31,134},{34,134},{34,
+          133},{40,133}}, color={0,0,127}));
+  connect(DM4.y3, multiplex51.u3) annotation (Line(points={{31,130},{36,130},{36,
+          128},{40,128}}, color={0,0,127}));
+  connect(DM4.y4, multiplex51.u4) annotation (Line(points={{31,126},{36,126},{36,
+          123},{40,123}}, color={0,0,127}));
+  connect(DM4.y5, multiplex51.u5) annotation (Line(points={{31,122},{34,122},{34,
+          118},{40,118}}, color={0,0,127}));
+  connect(multiplex51.y, multiplex21.u1) annotation (Line(points={{63,128},{66.5,
+          128},{66.5,132},{72,132}}, color={0,0,127}));
+  connect(DM5.y1, multiplex21.u2) annotation (Line(points={{31,102},{66,102},{66,
+          120},{72,120}}, color={0,0,127}));
+  connect(DM6.y2[1], tau_lockup_cap) annotation (Line(points={{31,72},{80,72},{80,
+          90},{110,90}}, color={0,0,127}));
+  connect(DM2.y5, DM8.u) annotation (Line(points={{-19,78},{-19,24},{8,24},{8,16}},
+        color={0,0,127}));
+  connect(DM2.y4, DM7.u) annotation (Line(points={{-19,82},{-6,82},{-6,42},{8,42}},
+        color={0,0,127}));
+  connect(DM2.y3, DM6.u) annotation (Line(points={{-19,86},{-2,86},{-2,68},{8,68}},
+        color={0,0,127}));
+  connect(DM2.y2, DM5.u) annotation (Line(points={{-19,90},{-6.5,90},{-6.5,94},{
+          8,94}}, color={0,0,127}));
+  connect(DM2.y1, DM4.u) annotation (Line(points={{-19,94},{-12,94},{-12,130},{8,
+          130}}, color={0,0,127}));
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-200},
+            {100,160}}),                                        graphics={
+          Rectangle(
+          extent={{-100,100},{100,-100}},
+          lineColor={28,108,200},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid)}), Diagram(coordinateSystem(
+          preserveAspectRatio=false, extent={{-100,-200},{100,160}})));
+end demultiplexer_test;
