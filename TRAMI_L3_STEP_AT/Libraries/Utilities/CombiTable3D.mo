@@ -33,26 +33,31 @@ model CombiTable3D
       input String fileName;
       input Real z_ax[:];
       input Integer nz;
-      input Real table[:, :];
+      input Real table[:,:];
       input Modelica.Blocks.Types.Smoothness smoothness;
-      input Modelica.Blocks.Types.Extrapolation extrapolation = Modelica.Blocks.Types.Extrapolation.LastTwoPoints;
-      input Boolean verbosRead = true;
+      input Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints;
+      input Boolean verbosRead=true;
       output ExternalCombiTable3D tableID;
 
-      external "C" tableID = createCombiTable3D(fileName, tableName, z_ax, nz, table, size(table, 1), size(table, 2), smoothness, extrapolation, verbosRead)
-      annotation (
-        Include = "#include <CombiTable3D.c>",
-        IncludeDirectory = "modelica://TRAMI_L3_STEP_AT/library_etc");
+    external"C" tableID = createCombiTable3D(
+          fileName,
+          tableName,
+          z_ax,
+          nz,
+          table,
+          size(table, 1),
+          size(table, 2),
+          smoothness,
+          extrapolation,
+          verbosRead) annotation (Include={"#include <CombiTable3D.c>","#include <ModelicaStandardTables.h>"}, IncludeDirectory={"modelica://TRAMI_L3_STEP_AT/library_etc","modelica://Modelica/Resources/C-Sources"});
     end constructor;
 
     function destructor
       extends Modelica.Icons.Function;
       input ExternalCombiTable3D tableID;
 
-      external "C" deleteCombiTable3D(tableID)
-      annotation (
-        Include = "#include <CombiTable3D.c>",
-        IncludeDirectory = "modelica://TRAMI_L3_STEP_AT/library_etc");
+    external"C" deleteCombiTable3D(tableID) annotation (Include={"#include <CombiTable3D.c>","#include <ModelicaStandardTables.h>"}, IncludeDirectory={"modelica://TRAMI_L3_STEP_AT/library_etc",
+            "modelica://Modelica/Resources/C-Sources"});
     end destructor;
   end ExternalCombiTable3D;
 
@@ -79,7 +84,7 @@ protected
 equation
   y = CombiTable3D_getValue(tableID, u, u1, u2);
   annotation (
-    Icon(coordinateSystem(initialScale = 0.1), graphics = {Rectangle(fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}}), Line(origin = {-16, -8}, points = {{-60, 40}, {-60, -40}, {60, -40}, {60, 40}, {30, 40}, {30, -40}, {-30, -40}, {-30, 40}, {-60, 40}, {-60, 20}, {60, 20}, {60, 0}, {-60, 0}, {-60, -20}, {60, -20}, {60, -40}, {-60, -40}, {-60, 40}, {60, 40}, {60, -40}}), Line(origin = {-16, -8}, points = {{0, 40}, {0, -40}}), Line(origin = {-16, -8}, points = {{-60, 40}, {-30, 20}}), Line(origin = {-16, -8}, points = {{-30, 40}, {-60, 20}}), Rectangle(origin = {-13.6923, -8}, fillColor = {255, 215, 136}, fillPattern = FillPattern.Solid, extent = {{-62.3077, 0}, {-32.3077, 20}}), Rectangle(origin = {-13.6923, -8}, fillColor = {255, 215, 136}, fillPattern = FillPattern.Solid, extent = {{-62.3077, -20}, {-32.3077, 0}}), Rectangle(origin = {-13.6923, -8}, fillColor = {255, 215, 136}, fillPattern = FillPattern.Solid, extent = {{-62.3077, -40}, {-32.3077, -20}}), Rectangle(origin = {-16, -8}, fillColor = {255, 215, 136}, fillPattern = FillPattern.Solid, extent = {{-30, 20}, {0, 40}}), Rectangle(origin = {-16, -8}, fillColor = {255, 215, 136}, fillPattern = FillPattern.Solid, extent = {{0, 20}, {30, 40}}), Line(origin = {-2, 4}, points = {{-60, 40}, {-60, 28}, {60, 28}, {60, 40}, {30, 40}, {30, 28}, {-30, 28}, {-30, 40}, {-60, 40}, {-60, 28}, {60, 28}, {60, 0}, {46, 0}, {46, -20}, {60, -20}, {60, -40}, {46, -40}, {46, 40}, {60, 40}, {60, -40}}), Rectangle(origin = {-2, 4}, fillColor = {255, 215, 136}, fillPattern = FillPattern.Solid, extent = {{0, 28}, {30, 40}}), Rectangle(origin = {-32, 4}, fillColor = {255, 215, 136}, fillPattern = FillPattern.Solid, extent = {{0, 28}, {30, 40}}), Line(origin = {-2, 4}, points = {{-60, 40}, {-44, 28}}), Line(origin = {-2, 4}, points = {{-30, 40}, {-48, 28}}), Line(origin = {12, 16}, points = {{-60, 40}, {-60, 28}, {60, 28}, {60, 40}, {30, 40}, {30, 28}, {-30, 28}, {-30, 40}, {-60, 40}, {-60, 28}, {60, 28}, {60, 0}, {46, 0}, {46, -20}, {60, -20}, {60, -40}, {46, -40}, {46, 40}, {60, 40}, {60, -40}}), Rectangle(origin = {12, 16}, fillColor = {255, 215, 136}, fillPattern = FillPattern.Solid, extent = {{0, 28}, {30, 40}}), Rectangle(origin = {-18, 16}, fillColor = {255, 215, 136}, fillPattern = FillPattern.Solid, extent = {{0, 28}, {30, 40}}), Line(origin = {12, 16}, points = {{-60, 40}, {-44, 28}}), Rectangle(origin = {9.692, 16}, fillColor = {255, 215, 136}, fillPattern = FillPattern.Solid, extent = {{32.3077, 20}, {62.3077, 40}}), Rectangle(origin = {-4.308, 4}, fillColor = {255, 215, 136}, fillPattern = FillPattern.Solid, extent = {{32.3077, 20}, {62.3077, 40}}), Rectangle(origin = {-18.308, -8}, fillColor = {255, 215, 136}, fillPattern = FillPattern.Solid, extent = {{32.3077, 20}, {62.3077, 40}}), Line(origin = {11.9666, 16.1}, points = {{-30, 40}, {-48, 28}}), Text(origin = {0, 133}, lineColor = {0, 0, 255}, extent = {{-140, 23}, {140, -23}}, textString = "%name")}),
+    Icon(coordinateSystem(initialScale = 0.1), graphics={  Rectangle(fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}}), Line(origin = {-16, -8}, points = {{-60, 40}, {-60, -40}, {60, -40}, {60, 40}, {30, 40}, {30, -40}, {-30, -40}, {-30, 40}, {-60, 40}, {-60, 20}, {60, 20}, {60, 0}, {-60, 0}, {-60, -20}, {60, -20}, {60, -40}, {-60, -40}, {-60, 40}, {60, 40}, {60, -40}}), Line(origin = {-16, -8}, points = {{0, 40}, {0, -40}}), Line(origin = {-16, -8}, points = {{-60, 40}, {-30, 20}}), Line(origin = {-16, -8}, points = {{-30, 40}, {-60, 20}}), Rectangle(origin = {-13.6923, -8}, fillColor = {255, 215, 136}, fillPattern = FillPattern.Solid, extent = {{-62.3077, 0}, {-32.3077, 20}}), Rectangle(origin = {-13.6923, -8}, fillColor = {255, 215, 136}, fillPattern = FillPattern.Solid, extent = {{-62.3077, -20}, {-32.3077, 0}}), Rectangle(origin = {-13.6923, -8}, fillColor = {255, 215, 136}, fillPattern = FillPattern.Solid, extent = {{-62.3077, -40}, {-32.3077, -20}}), Rectangle(origin = {-16, -8}, fillColor = {255, 215, 136}, fillPattern = FillPattern.Solid, extent = {{-30, 20}, {0, 40}}), Rectangle(origin = {-16, -8}, fillColor = {255, 215, 136}, fillPattern = FillPattern.Solid, extent = {{0, 20}, {30, 40}}), Line(origin = {-2, 4}, points = {{-60, 40}, {-60, 28}, {60, 28}, {60, 40}, {30, 40}, {30, 28}, {-30, 28}, {-30, 40}, {-60, 40}, {-60, 28}, {60, 28}, {60, 0}, {46, 0}, {46, -20}, {60, -20}, {60, -40}, {46, -40}, {46, 40}, {60, 40}, {60, -40}}), Rectangle(origin = {-2, 4}, fillColor = {255, 215, 136}, fillPattern = FillPattern.Solid, extent = {{0, 28}, {30, 40}}), Rectangle(origin = {-32, 4}, fillColor = {255, 215, 136}, fillPattern = FillPattern.Solid, extent = {{0, 28}, {30, 40}}), Line(origin = {-2, 4}, points = {{-60, 40}, {-44, 28}}), Line(origin = {-2, 4}, points = {{-30, 40}, {-48, 28}}), Line(origin = {12, 16}, points = {{-60, 40}, {-60, 28}, {60, 28}, {60, 40}, {30, 40}, {30, 28}, {-30, 28}, {-30, 40}, {-60, 40}, {-60, 28}, {60, 28}, {60, 0}, {46, 0}, {46, -20}, {60, -20}, {60, -40}, {46, -40}, {46, 40}, {60, 40}, {60, -40}}), Rectangle(origin = {12, 16}, fillColor = {255, 215, 136}, fillPattern = FillPattern.Solid, extent = {{0, 28}, {30, 40}}), Rectangle(origin = {-18, 16}, fillColor = {255, 215, 136}, fillPattern = FillPattern.Solid, extent = {{0, 28}, {30, 40}}), Line(origin = {12, 16}, points = {{-60, 40}, {-44, 28}}), Rectangle(origin = {9.692, 16}, fillColor = {255, 215, 136}, fillPattern = FillPattern.Solid, extent = {{32.3077, 20}, {62.3077, 40}}), Rectangle(origin = {-4.308, 4}, fillColor = {255, 215, 136}, fillPattern = FillPattern.Solid, extent = {{32.3077, 20}, {62.3077, 40}}), Rectangle(origin = {-18.308, -8}, fillColor = {255, 215, 136}, fillPattern = FillPattern.Solid, extent = {{32.3077, 20}, {62.3077, 40}}), Line(origin = {11.9666, 16.1}, points = {{-30, 40}, {-48, 28}}), Text(origin = {0, 133}, lineColor = {0, 0, 255}, extent = {{-140, 23}, {140, -23}}, textString = "%name")}),
     Diagram(coordinateSystem(initialScale = 0.1)),
     uses(Modelica(version = "3.2.3")));
 end CombiTable3D;
